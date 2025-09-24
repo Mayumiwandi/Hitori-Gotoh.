@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ========== Basic Meta Tags ========== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/_%20(19).jpeg"
+    />
+    <meta
+      name="description"
+      content="Hitori Gotoh, dijuluki Bocchi-chan, adalah gadis SMA tahun pertama yang sangat pemalu, introvert, dan mengalami kecemasan sosial berat. Ia sangat berbakat bermain gitar dan bergabung dengan Kessoku Band untuk mengejar impian tampil di panggung, meski sering merasa cemas dan sulit berinteraksi."
+    />
+    <meta
+      name="keywords"
+      content="mayumiwandi, website,Hitori Gotoh, anime,Kessoku Band,guitarhero,Bocchi the Rock! "
+    />
+    <meta name="author" content="mayumiwandi" />
+    <meta name="copyright" content="© 2025 Yumi" />
+    <title>Hitori Gotoh.</title>
+
+    <!-- ========== Open Graph / Facebook ========== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hitori Gotoh." />
+    <meta
+      property="og:description"
+      content="Hitori Gotoh, dijuluki Bocchi-chan, adalah gadis SMA tahun pertama yang sangat pemalu, introvert, dan mengalami kecemasan sosial berat. Ia sangat berbakat bermain gitar dan bergabung dengan Kessoku Band untuk mengejar impian tampil di panggung, meski sering merasa cemas dan sulit berinteraksi."
+    />
+    <meta property="og:url" content="https://mayumiwandi.github.io/" />
+    <meta property="og:site_name" content="Hitori Gotoh." />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/_%20(19).jpeg"
+    />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- ========== Twitter Cards ========== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hitori Gotoh." />
+    <meta
+      name="twitter:description"
+      content="Hitori Gotoh, dijuluki Bocchi-chan, adalah gadis SMA tahun pertama yang sangat pemalu, introvert, dan mengalami kecemasan sosial berat. Ia sangat berbakat bermain gitar dan bergabung dengan Kessoku Band untuk mengejar impian tampil di panggung, meski sering merasa cemas dan sulit berinteraksi."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/_%20(19).jpeg"
+    />
+    <meta name="twitter:site" content="@mayumiwandi" />
+    <meta name="twitter:creator" content="@mayumiwandi" />
+
+    <!-- ========== SEO & Lokasi ========== -->
+    <link rel="canonical" href="https://mayumiwandi.github.io/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="ID" />
+    <meta name="geo.placename" content="Indonesia" />
+
+    <!-- ========== Mobile & App Tags ========== -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Mode Gelap dan Terang */
+      :root {
+        /* Mode Terang (Default) */
+        --bg-image: url("https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/image-bg.png");
+        --text-primary: #2c3e50;
+        --text-secondary: #34495e;
+        --card-bg: rgba(255, 255, 255, 0.65);
+        --navbar-bg: rgba(255, 255, 255, 0.2);
+        --navbar-border: rgba(255, 255, 255, 0.3);
+        --button-bg: #007bff;
+        --button-hover-bg: #0056b3;
+        --glow-color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        /* Mode Gelap otomatis sesuai tema */
+        :root {
+          --bg-image: url("https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/image-bg.png");
+          --text-primary: #ecf0f1;
+          --text-secondary: #bdc3c7;
+          --card-bg: rgba(22, 22, 22, 0.65);
+          --navbar-bg: rgba(10, 10, 10, 0.2);
+          --navbar-border: rgba(255, 255, 255, 0.1);
+          --button-bg: #e91e63; /* Warna pink khas Bocchi */
+          --button-hover-bg: #c2185b;
+          --glow-color: rgba(233, 30, 99, 0.5); /* Glow pink */
+        }
+      }
+
+      /* --- 2. Gaya Dasar & Latar --- */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: background-image 0.5s ease;
+      }
+      .main-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      /* --- 3. Navbar Kaca (Glassmorphism) --- */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        position: fixed;
+        width: 90%;
+        max-width: 900px;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: var(--navbar-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 15px;
+        border: 1px solid var(--navbar-border);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+      }
+      .nav-left a,
+      .nav-right span {
+        text-decoration: none;
+        color: var(--text-primary);
+        margin-right: 30px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+      .nav-left a:hover {
+        color: var(--button-bg);
+      }
+
+      /* --- 4. Penataan Section --- */
+      #home,
+      #about,
+      #gallery {
+        scroll-margin-top: 120px;
+      }
+      .hero-section,
+      .page-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 20px;
+        box-sizing: border-box;
+      }
+
+      /* --- 5. KONTEN HOME DIPERBARUI --- */
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        max-width: 1200px;
+        width: 100%;
+        margin: auto;
+        gap: 40px;
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(8px);
+        transition: background 0.3s ease;
+      }
+      .text-content {
+        flex: 1;
+        min-width: 300px;
+        z-index: 2;
+      }
+      .text-content h1 {
+        font-size: 4.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+      }
+      .text-content p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin: 20px 0 30px 0;
+        max-width: 500px;
+        line-height: 1.7;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .explore-button {
+        background-color: var(--button-bg);
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .explore-button:hover {
+        background-color: var(--button-hover-bg);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 450px;
+      }
+      /* EFEK GLOW PADA KARAKTER */
+      .main-anime-char {
+        max-height: 500px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 0 15px var(--glow-color))
+          drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+        transition: transform 0.3s ease;
+      }
+      .main-anime-char:hover {
+        transform: scale(1.03);
+      }
+
+      /* --- 6. KONTEN ABOUT & GALLERY  --- */
+      .page-section-content {
+        max-width: 1100px;
+        width: 100%;
+        margin: auto;
+        background: var(--card-bg);
+        backdrop-filter: blur(8px);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+      }
+      .page-section-content h2 {
+        font-size: 2.5rem;
+        color: var(--text-primary);
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .page-section-content h3 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin-top: 40px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--button-bg);
+        padding-bottom: 5px;
+        display: inline-block;
+      }
+      .page-section-content ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .page-section-content ul li {
+        padding-left: 25px;
+        position: relative;
+        margin-bottom: 10px;
+        color: var(--text-secondary);
+      }
+      .page-section-content ul li::before {
+        content: "🎸";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      /* --- 7. GALERI BARU DENGAN THUMBNAIL --- */
+      .gallery-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      /* Kontainer gambar utama dibuat relatif untuk posisi tombol */
+      .main-slide-display {
+        position: relative;
+        width: 100%;
+        height: 450px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .main-slide-display img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: opacity 0.5s ease;
+      } /* Animasi fade saja, bukan transform */
+
+      /* GAYA BARU UNTUK TOMBOL PANAH GALERI */
+      .gallery-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.8rem;
+        z-index: 10;
+        transition: background-color 0.3s ease;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: grid;
+        place-items: center;
+        opacity: 0; /* Sembunyi secara default */
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+      }
+      .main-slide-display:hover .gallery-btn {
+        opacity: 1; /* Muncul saat kursor di atas gambar */
+      }
+      .gallery-btn:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      .prev-btn {
+        left: 15px;
+      }
+      .next-btn {
+        right: 15px;
+      }
+
+      .thumbnail-strip {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--button-bg) transparent;
+      }
+      .thumbnail-item {
+        flex-shrink: 0;
+        width: 100px;
+        height: 70px;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 3px solid transparent;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+      }
+      .thumbnail-item:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      .thumbnail-item.active {
+        opacity: 1;
+        border-color: var(--button-bg);
+        box-shadow: 0 0 15px var(--button-bg);
+        transform: scale(1.05);
+      }
+      .thumbnail-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* --- 8. FOOTER --- */
+      .main-footer {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(100%);
+        width: 90%;
+        max-width: 700px;
+        padding: 10px 20px;
+        background: var(--navbar-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-top: 1px solid var(--navbar-border);
+        border-left: 1px solid var(--navbar-border);
+        border-right: 1px solid var(--navbar-border);
+        box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        visibility: hidden;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+          visibility 0.6s;
+      }
+      .main-footer.footer-visible {
+        transform: translateX(-50%) translateY(0);
+        visibility: visible;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        color: var(--text-secondary);
+      }
+      .footer-socials {
+        display: flex;
+        gap: 15px;
+      }
+      .footer-socials a {
+        color: var(--text-primary);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .footer-socials a:hover {
+        color: var(--button-bg);
+        transform: translateY(-2px);
+      }
+      .footer-socials svg {
+        fill: currentColor;
+        width: 22px;
+        height: 22px;
+      }
+      .footer-text {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* --- 9. RESPONSIVE --- */
+      @media (max-width: 1024px) {
+        .hero-content {
+          flex-direction: column;
+          text-align: center;
+        }
+        .text-content {
+          order: 2;
+        }
+        .image-content {
+          order: 1;
+          margin-bottom: 30px;
+          min-height: auto;
+        }
+        .main-anime-char {
+          max-height: 400px;
+        }
+        .text-content h1 {
+          font-size: 3.5rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 15px 20px;
+          width: 90%;
+        }
+        .text-content h1 {
+          font-size: 3rem;
+        }
+        .page-section-content {
+          padding: 30px 20px;
+        }
+        .main-slide-display {
+          height: 350px;
+        }
+      }
+      @media (max-width: 480px) {
+        #home,
+        #about,
+        #gallery {
+          scroll-margin-top: 90px;
+        }
+        .navbar {
+          top: 10px;
+        }
+        .nav-left a {
+          margin-right: 15px;
+          font-size: 0.9rem;
+        }
+        .nav-right span {
+          display: none;
+        }
+        .hero-content {
+          padding: 25px;
+        }
+        .text-content h1 {
+          font-size: 2.5rem;
+        }
+        .text-content p {
+          font-size: 1rem;
+        }
+        .main-anime-char {
+          max-height: 300px;
+        }
+        .page-section-content h2 {
+          font-size: 2rem;
+        }
+        .main-slide-display {
+          height: 250px;
+        }
+        .footer-text {
+          display: none;
+        }
+        .footer-content {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header class="navbar">
+        <div class="nav-left">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+        <div class="nav-right">
+          <span>@RuriAylin</span>
+        </div>
+      </header>
+
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <div class="text-content">
+            <h1>Hitori Gotoh.</h1>
+            <p>
+              Hitori Gotoh <i>(nicknamed Bocchi-chan)</i>, the protagonist of
+              the Bocchi the Rock! series, is a high school girl with
+              exceptional guitar skills but crippling social anxiety.
+            </p>
+            <button
+              class="explore-button"
+              onclick="location.href='https://bocchi-the-rock.fandom.com/wiki/Hitori_Gotoh'"
+            >
+              Explore More
+            </button>
+          </div>
+          <div class="image-content">
+            <img
+              src="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/BG-Anime-bochi.png"
+              alt="Gotou Bocchi"
+              class="main-anime-char"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="page-section">
+        <div class="page-section-content">
+          <h2>About Hitori</h2>
+          <p>
+            Hitori Gotoh, nicknamed "Bocchi-chan," is a first-year high school
+            student who dreams of forming a band to overcome her severe social
+            anxiety. Despite her incredible talent on the guitar, she struggles
+            to perform in front of others and often hides inside a cardboard box
+            during shows.
+          </p>
+          <p>
+            Joining Kessoku Band with her bandmates—Nijika, Ryo, and Kita—marks
+            the beginning of her journey. Through their support, she slowly
+            learns to interact with others, write lyrics, and face her fears on
+            stage, even when her anxiety constantly tries to pull her back.
+          </p>
+          <h3>Character Essence & Fun Facts</h3>
+          <ul>
+            <li>
+              The name <strong>Hitori</strong> means “alone,” and her nickname
+              <strong>Bocchi</strong> comes from
+              <i>hitoribocchi</i> (loneliness).
+            </li>
+            <li>
+              She runs a popular anonymous YouTube channel called “guitarhero”
+              to showcase her skills.
+            </li>
+            <li>
+              Her spontaneous antics, like a failed stage dive, often end up
+              making her unexpectedly famous among her peers.
+            </li>
+            <li>
+              She feels most comfortable expressing herself through music rather
+              than face-to-face interaction.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="gallery" class="page-section">
+        <div class="page-section-content">
+          <h2>Gallery</h2>
+          <div class="gallery-container">
+            <div class="main-slide-display">
+              <img
+                src="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/1296314.png"
+                alt="Featured Gallery Image"
+                id="featured-image"
+              />
+              <button class="gallery-btn prev-btn" aria-label="Previous image">
+                &lt;
+              </button>
+              <button class="gallery-btn next-btn" aria-label="Next image">
+                &gt;
+              </button>
+            </div>
+            <div class="thumbnail-strip">
+              <div class="thumbnail-item active">
+                <img
+                  src="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/1296314.png"
+                  alt="Gallery Thumbnail 1"
+                />
+              </div>
+              <div class="thumbnail-item">
+                <img
+                  src="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/1296640.jpg"
+                  alt="Gallery Thumbnail 2"
+                />
+              </div>
+              <div class="thumbnail-item">
+                <img
+                  src="https://w.wallhaven.cc/full/2y/wallhaven-2y2o1m.jpg"
+                  alt="Gallery Thumbnail 3"
+                />
+              </div>
+              <div class="thumbnail-item">
+                <img
+                  src="https://w.wallhaven.cc/full/7p/wallhaven-7pklje.png"
+                  alt="Gallery Thumbnail 4"
+                />
+              </div>
+              <div class="thumbnail-item">
+                <img
+                  src="https://raw.githubusercontent.com/Mayumiwandi/Hitori-Gotoh./refs/heads/main/image/wallhaven-gpd3v3.jpg"
+                  alt="Gallery Thumbnail 5"
+                />
+              </div>
+              <div class="thumbnail-item">
+                <img
+                  src="https://w.wallhaven.cc/full/yx/wallhaven-yxmwyx.jpg"
+                  alt="Gallery Thumbnail 6"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="main-footer" class="main-footer">
+      <div class="footer-content">
+        <div class="footer-socials">
+          <a href="https://t.me/RuriAylin" aria-label="Telegram" target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15.91L18.23 18.2c-.27.67-1.02.86-1.66.53l-4.2-2.45-2.02 2.02c-.38.38-1.03.13-1.14-.39z"
+              /></svg
+          ></a>
+          <a
+            href="https://github.com/Mayumiwandi"
+            aria-label="GitHub"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              /></svg
+          ></a>
+          <a
+            href="https://www.instagram.com/mayumiwandi"
+            aria-label="Instagram"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44c0-.795-.645-1.44-1.441-1.44z"
+              /></svg
+          ></a>
+          <a
+            href="https://www.tiktok.com/@mayumiwandi"
+            aria-label="TikTok"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.86-.95-6.69-2.81-1.75-1.76-2.93-4.14-2.93-6.69 0-.02 0-.04 0-.05.02-2.78 1.69-5.37 4.02-6.61 1.51-.81 3.2-.94 4.77-.52.05.65.1 1.31.14 1.97.02.33.02.66.02.99 0 .33-.01.66-.02.99-.25.04-.51.06-.76.09-1.09.11-2.19.49-3.15 1.15-.35.25-.66.56-.93.9-.3.37-.52.8-.62 1.25-.08.37-.12.76-.12 1.14 0 .93.31 1.84.81 2.62.49.77 1.19 1.37 2.05 1.72.62.25 1.28.37 1.92.37.95 0 1.89-.25 2.73-.72.63-.35 1.16-.83 1.58-1.41.32-.44.52-.94.6-1.46.02-.14.03-.28.03-.43.01-2.91-.01-5.82.02-8.73z"
+              /></svg
+          ></a>
+        </div>
+        <div class="footer-text">
+          Dibuat dengan ❤️ oleh Ruri Aylin &copy; 2025
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- LOGIKA UNTUK GALERI INTERAKTIF ---
+        const featuredImage = document.getElementById("featured-image");
+        const thumbnails = document.querySelectorAll(".thumbnail-item");
+        const prevBtn = document.querySelector(".gallery-btn.prev-btn");
+        const nextBtn = document.querySelector(".gallery-btn.next-btn");
+
+        // Pastikan semua elemen galeri ada
+        if (featuredImage && thumbnails.length > 0 && prevBtn && nextBtn) {
+          let currentIndex = 0;
+          let slideInterval;
+
+          // Fungsi utama untuk update galeri
+          const updateGallery = (index) => {
+            // Update index
+            currentIndex = index;
+
+            // Ganti gambar utama
+            const newImageSrc =
+              thumbnails[currentIndex].querySelector("img").src;
+            featuredImage.style.opacity = "0";
+            setTimeout(() => {
+              featuredImage.src = newImageSrc;
+              featuredImage.style.opacity = "1";
+            }, 300);
+
+            // Update thumbnail aktif
+            thumbnails.forEach((item) => item.classList.remove("active"));
+            thumbnails[currentIndex].classList.add("active");
+          };
+
+          // Fungsi untuk slide berikutnya
+          const showNextSlide = () => {
+            const nextIndex = (currentIndex + 1) % thumbnails.length;
+            updateGallery(nextIndex);
+          };
+
+          // Fungsi untuk slide sebelumnya
+          const showPrevSlide = () => {
+            const prevIndex =
+              (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+            updateGallery(prevIndex);
+          };
+
+          // Fungsi untuk memulai & mereset auto-slide
+          const startAutoSlide = () => {
+            clearInterval(slideInterval); // Hapus interval yang lama
+            slideInterval = setInterval(showNextSlide, 4000); // Mulai yang baru 4 detik
+          };
+
+          // Event listener untuk tombol
+          nextBtn.addEventListener("click", () => {
+            showNextSlide();
+            startAutoSlide(); // Reset timer saat tombol diklik
+          });
+
+          prevBtn.addEventListener("click", () => {
+            showPrevSlide();
+            startAutoSlide(); // Reset timer saat tombol diklik
+          });
+
+          // Event listener untuk thumbnail
+          thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener("click", () => {
+              updateGallery(index);
+              startAutoSlide(); // Reset timer saat thumbnail diklik
+            });
+          });
+
+          // Mulai auto-slide saat halaman dimuat
+          startAutoSlide();
+        }
+
+        // --- LOGIKA UNTUK FOOTER DAN ANIMASI SECTION ---
+        const mainFooter = document.getElementById("main-footer");
+        const homeSection = document.getElementById("home");
+        let isInitialLoad = true;
+
+        if (mainFooter && homeSection) {
+          const footerObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  if (isInitialLoad) {
+                    setTimeout(
+                      () => mainFooter.classList.add("footer-visible"),
+                      2000
+                    );
+                    isInitialLoad = false;
+                  } else {
+                    mainFooter.classList.add("footer-visible");
+                  }
+                } else {
+                  mainFooter.classList.remove("footer-visible");
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
+          footerObserver.observe(homeSection);
+        }
+      });
+    </script>
+  </body>
+</html>
