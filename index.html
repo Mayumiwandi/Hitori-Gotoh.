@@ -99,7 +99,9 @@
         }
       }
 
-      /* --- 2. Gaya Dasar & Latar --- */
+      * {
+        box-sizing: border-box;
+      }
       html {
         scroll-behavior: smooth;
       }
@@ -153,8 +155,6 @@
       .nav-left a:hover {
         color: var(--button-bg);
       }
-
-      /* --- 4. Penataan Section --- */
       #home,
       #about,
       #gallery {
@@ -170,7 +170,6 @@
         box-sizing: border-box;
       }
 
-      /* --- 5. KONTEN HOME DIPERBARUI --- */
       .hero-content {
         display: flex;
         align-items: center;
@@ -230,8 +229,8 @@
         align-items: center;
         min-height: 450px;
       }
-      /* EFEK GLOW PADA KARAKTER */
       .main-anime-char {
+        /*glowing char */
         max-height: 500px;
         height: auto;
         object-fit: contain;
@@ -289,16 +288,12 @@
         left: 0;
         top: 0;
       }
-
-      /* --- 7. GALERI BARU DENGAN THUMBNAIL --- */
       .gallery-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 20px;
       }
-
-      /* Kontainer gambar utama dibuat relatif untuk posisi tombol */
       .main-slide-display {
         position: relative;
         width: 100%;
@@ -314,9 +309,8 @@
         object-fit: cover;
         display: block;
         transition: opacity 0.5s ease;
-      } /* Animasi fade saja, bukan transform */
+      }
 
-      /* GAYA BARU UNTUK TOMBOL PANAH GALERI */
       .gallery-btn {
         position: absolute;
         top: 50%;
@@ -443,7 +437,6 @@
         font-weight: 500;
       }
 
-      /* --- 9. RESPONSIVE --- */
       @media (max-width: 1024px) {
         .hero-content {
           flex-direction: column;
@@ -451,17 +444,15 @@
         }
         .text-content {
           order: 2;
+          margin-top: 20px;
         }
         .image-content {
           order: 1;
-          margin-bottom: 30px;
+          margin-bottom: 0;
           min-height: auto;
         }
         .main-anime-char {
           max-height: 400px;
-        }
-        .text-content h1 {
-          font-size: 3.5rem;
         }
       }
       @media (max-width: 768px) {
@@ -495,14 +486,20 @@
         .nav-right span {
           display: none;
         }
+
         .hero-content {
-          padding: 25px;
+          padding: 30px 25px;
         }
         .text-content h1 {
           font-size: 2.5rem;
         }
         .text-content p {
           font-size: 1rem;
+          margin: 15px 0 25px 0;
+        }
+        .explore-button {
+          padding: 10px 22px;
+          font-size: 0.9rem;
         }
         .main-anime-char {
           max-height: 300px;
@@ -731,7 +728,6 @@
         const prevBtn = document.querySelector(".gallery-btn.prev-btn");
         const nextBtn = document.querySelector(".gallery-btn.next-btn");
 
-        // Pastikan semua elemen galeri ada
         if (featuredImage && thumbnails.length > 0 && prevBtn && nextBtn) {
           let currentIndex = 0;
           let slideInterval;
@@ -793,11 +789,9 @@
             });
           });
 
-          // Mulai auto-slide saat halaman dimuat
           startAutoSlide();
         }
 
-        // --- LOGIKA UNTUK FOOTER DAN ANIMASI SECTION ---
         const mainFooter = document.getElementById("main-footer");
         const homeSection = document.getElementById("home");
         let isInitialLoad = true;
